@@ -1,5 +1,7 @@
 package bussinesobject;
 
+import model.GuestModel;
+import model.PeriodModel;
 import pageobject.HomePage;
 
 public class SearchActions {
@@ -16,17 +18,17 @@ public class SearchActions {
         return this;
     }
 
-    public SearchActions setPeriod(){
+    public SearchActions setPeriod(PeriodModel period){
         homePage.clickPeriodSelecion()
-                .setStartDate()
-                .setEndDate();
+                .setStartDate(period.getStartDate())
+                .setEndDate(period.getEndDate());
         return this;
     }
 
-    public SearchActions setGuests(int adultsNumber, int childrenNumber){
+    public SearchActions setGuests(GuestModel guests){
         homePage.clickGuestsNumberSelection()
-                .setAdultsNumber(adultsNumber)
-                .setChildrenNumber(childrenNumber);
+                .setAdultsNumber(guests.getAdultsNumber())
+                .setChildrenNumber(guests.getChildrenNumber());
         return this;
     }
 

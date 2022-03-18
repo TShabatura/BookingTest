@@ -7,8 +7,8 @@ public class HomePage extends BasePage{
     private static final String ENG_XPATH = "//a[@data-lang = 'en-us']";
     private static final String SEARCH_XPATH = "//input[@type = 'search']";
     private static final String DATES_XPATH = "//div[@class = 'xp__dates xp__group']";
-    private static final String START_DATE_XPATH = "//td[@data-date = '2022-02-13']";
-    private static final String END_DATE_XPATH = "//td[@data-date = '2022-02-15']";
+    private static final String START_DATE_XPATH = "//td[@data-date = '%s']";
+    private static final String END_DATE_XPATH = "//td[@data-date = '%s']";
     private static final String ADULTS_XPATH = "//input[@id = 'group_adults']";
     private static final String CHILDREN_XPATH = "//input[@id = 'group_children']";
     private static final String GUESTS_XPATH = "//div[@class = 'xp__input-group xp__guests']";
@@ -38,13 +38,13 @@ public class HomePage extends BasePage{
         return this;
     }
 
-    public HomePage setStartDate(){
-        $x(START_DATE_XPATH).click();
+    public HomePage setStartDate(String startDate){
+        $x(String.format(START_DATE_XPATH, startDate)).click();
         return this;
     }
 
-    public HomePage setEndDate(){
-        $x(END_DATE_XPATH).click();
+    public HomePage setEndDate(String endDate){
+        $x(String.format(END_DATE_XPATH, endDate)).click();
         return this;
     }
 

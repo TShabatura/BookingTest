@@ -27,4 +27,21 @@ public class BookingTest extends BaseTest{
         ResultAssertions.assertThat()
                 .hasLocation(destinationPlace);
     }
+
+    @Test
+    public void failedSearchParisTest(){
+        SearchActions searchActions = new SearchActions();
+
+        PeriodModel period = PeriodCreator.withTwoNextDays();
+        GuestModel guests = GuestCreator.standart();
+        searchActions.changeLanguageToEng()
+                .setDestinationPlace(destinationPlace)
+                .setPeriod(period)
+                .setGuests(guests)
+                .clickSearch();
+        new SearchResultsPage().selectResultByNumber(0);
+
+        ResultAssertions.assertThat()
+                .hasLocation("Париж");
+    }
 }

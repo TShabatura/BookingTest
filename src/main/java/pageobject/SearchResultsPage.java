@@ -1,6 +1,8 @@
 package pageobject;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
+
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$$x;
@@ -13,6 +15,7 @@ public class SearchResultsPage extends BasePage{
         return $$x(RESULTS_XPATH);
     }
 
+    @Step
     public void selectResultByNumber(int number){
         getResultsList().get(number).click();
         switchTo().window(1);

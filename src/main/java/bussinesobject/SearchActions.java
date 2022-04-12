@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import model.GuestModel;
 import model.PeriodModel;
 import pageobject.HomePage;
+import util.AllureAttachments;
 
 public class SearchActions {
     private HomePage homePage = new HomePage();
@@ -12,6 +13,7 @@ public class SearchActions {
     public SearchActions changeLanguageToEng(){
         homePage.clickChangeLanguageBtn()
                 .clickEngBtn();
+        AllureAttachments.makeScreenshot();
         return this;
     }
 

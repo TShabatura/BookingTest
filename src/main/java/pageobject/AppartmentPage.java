@@ -1,14 +1,11 @@
 package pageobject;
 
-import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
-
 import static com.codeborne.selenide.Selenide.$x;
 
 public class AppartmentPage extends BasePage{
-    private static final String LOCATION_XPATH = "//span[contains(@class, 'hp_address_subtitle')]";
+    private static final String DESTINATION_INPUT_XPATH = "//input[@type='search']";
 
-    public SelenideElement getLocation(){
-        return $x(LOCATION_XPATH);
+    public String getDestination(){
+        return $x(DESTINATION_INPUT_XPATH).getValue();
     }
 }

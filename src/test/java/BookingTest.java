@@ -1,12 +1,15 @@
 import assertions.ResultAssertions;
 import bussinesobject.SearchActions;
+import listener.AllureListener;
 import model.GuestModel;
 import model.PeriodModel;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pageobject.SearchResultsPage;
 import service.GuestCreator;
 import service.PeriodCreator;
 
+@Listeners({AllureListener.class})
 public class BookingTest extends BaseTest{
 
     private String destinationPlace = "Paris";
@@ -25,7 +28,7 @@ public class BookingTest extends BaseTest{
         new SearchResultsPage().selectResultByNumber(0);
 
         ResultAssertions.assertThat()
-                .hasLocation(destinationPlace);
+                .hasDestination(destinationPlace);
     }
 
     @Test
@@ -42,6 +45,6 @@ public class BookingTest extends BaseTest{
         new SearchResultsPage().selectResultByNumber(0);
 
         ResultAssertions.assertThat()
-                .hasLocation("Париж");
+                .hasDestination("Париж");
     }
 }

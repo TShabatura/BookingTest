@@ -1,7 +1,7 @@
 package assertions;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
+import org.testng.Assert;
 import pageobject.AppartmentPage;
 
 public class ResultAssertions {
@@ -12,9 +12,9 @@ public class ResultAssertions {
     }
 
     @Step
-    public ResultAssertions hasLocation(String expected){
-        appartmentPage.getLocation()
-                .shouldHave(Condition.text(expected));
+    public ResultAssertions hasDestination(String expected){
+        Assert.assertEquals(appartmentPage.getDestination(), expected);
         return this;
     }
+
 }
